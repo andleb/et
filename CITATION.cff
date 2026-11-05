@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite the paper below."
+type: software
+title: "Energy-Tweedie: Score meets Score, Energy meets Energy"
+authors:
+  - family-names: Leban
+    given-names: Andrej
+    affiliation: Department of Statistics, University of Michigan
+url: "https://andleb.netlify.app/publication/et/"
+repository-code: "https://github.com/andleb/et"
+license: BSD-3-Clause
+preferred-citation:
+  type: conference-paper
+  title: "Energy-Tweedie: Score meets Score, Energy meets Energy"
+  authors:
+    - family-names: Leban
+      given-names: Andrej
+  collection-title: Advances in Neural Information Processing Systems
+  collection-type: proceedings
+  year: 2026
+  url: "https://arxiv.org/abs/2512.23818"
