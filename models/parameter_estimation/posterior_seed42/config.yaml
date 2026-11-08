@@ -1,0 +1,89 @@
+data:
+  n_samples: 1280000
+  radius: 2.0
+  std_clean: 0.2
+  gpu_batch_gen: true
+noise:
+  sigma_min: 0.01
+  sigma_max: 10.0
+  schedule: geometric
+  condition: log_sigma_spd
+  sigma_sampling: continuous_log_uniform_with_anchors
+  anchor_sigmas:
+    - 0.25
+    - 0.45
+    - 0.75
+  anchor_probability: 0.25
+  n_sigma_levels: 15
+training:
+  energy_score: euclidean
+  seed: 42
+  num_epochs: 17500
+  batch_size: 40000
+  accum_steps: 2
+  lr: 1.5e-05
+  scheduler:
+    type: cosine
+    eta_min: 1.0e-06
+  print_every: 50
+  snapshot_every: 1000
+  sigma_weight:
+    enabled: true
+    mode: inv_sigma2_norm
+    power: 0.100343
+  grad_clip: true
+  grad_clip_norm: 1.0
+model:
+  beta: 1.0
+  num_layers: 6
+  hidden_dim: 250
+  noise_dim: 100
+  resblock: true
+  add_bn: false
+  out_act: null
+  noise_all_layer: true
+  film_level: 2
+  film_pos: in
+  film_mlp_hidden: 64
+  standardize: false
+  standardize_condition: true
+  vary_stochasticity: false
+  noise_floor: 0.005
+gaussian:
+  mode: gaussian
+generalized:
+  mode: generalized
+  beta_noise: 1.4
+  lam: 1.8
+  covariance:
+    type: random_spd_2d
+    radius_max: 0.7
+    radial_distribution: uniform_area
+    anchor_probability: 0.25
+    anchors:
+      - - 0.0
+        - 0.0
+      - - 0.6
+        - 0.0
+      - - -0.6
+        - 0.0
+      - - 0.0
+        - 0.6
+      - - 0.0
+        - -0.6
+      - - 0.424264
+        - 0.424264
+      - - 0.424264
+        - -0.424264
+validation:
+  sigmas:
+    - 0.25
+    - 0.45
+    - 0.75
+  reference: importance
+system:
+  device: cuda
+  run_dir: res/8gauss/cond_models
+versioning:
+  use_timestamp: true
+  timestamp_format: '%Y%m%d_%H%M%S'

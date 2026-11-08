@@ -1,0 +1,35 @@
+output_root: res/8gauss/score/comparison_full5_80k
+reference_cache: res/8gauss/score/comparison_full5_80k/reference
+et_results: res/8gauss/score/full5
+posterior_config: exp/configs/train_8gauss_full_spd.yaml
+model_root: models
+evaluation_seed: 271828
+seeds: [ 42, 43 ]
+objectives: [ et_dsm, hyvarinen ]
+
+model:
+  dim: 2
+  condition_dim: 5
+  width: 256
+  depth: 3
+  activation: silu
+
+training:
+  n_steps: 80000
+  batch_size: 4096
+  lr: 0.001
+  lr_min: 0.00001
+  weight_decay: 0.0
+  grad_clip: 10.0
+  log_every: 100
+  checkpoint_every: 2000
+  validation_every: 2000
+  validation_batches: 8
+  validation_batch_size: 1024
+  data_seed_offset: 100000
+  validation_seed_offset: 200000
+  loss_weight: actual_rms_squared
+
+system:
+  device: cuda
+  dtype: float32

@@ -1,0 +1,70 @@
+model_root: models/score_and_diffusion
+output_root: res/8gauss/diffusion/controls
+arms_file: exp/sweeps/diffusion-8gauss-controls.tsv
+
+schedule_grid:
+  n_levels: 51
+  actual_rms_start: 0.832856456352982
+  actual_rms_end: 0.00832856456352982
+
+models:
+  - training_seed: 42
+    run_name: full_spd_seed42
+    checkpoint: model.pt
+  - training_seed: 43
+    run_name: full_spd_seed43
+    checkpoint: model.pt
+
+data:
+  dim: 2
+  radius: 2.0
+  std_clean: 0.2
+
+schedule:
+  n_levels: 49
+  actual_rms_start: 0.832856456352982
+  actual_rms_end: 0.010013136966146802
+
+sampler:
+  n_samples: 4096
+  n_mc: 64
+  n_steps_each: 10
+  alpha_cap: 0.025
+  update_clip: 1000.0
+  state_clip: null
+
+sampling_seeds:
+  - 2718
+  - 3141
+  - 5772
+
+finalization:
+  seed_offset: 1000000
+
+evaluation:
+  energy_subsample: 4096
+  reference_seed: 299792
+  evaluation_seed: 323846
+  clean_baseline_seeds:
+    - 81173
+    - 104729
+
+tracking:
+  levels:
+    - 0
+    - 5
+    - 10
+    - 15
+    - 20
+    - 25
+    - 30
+    - 35
+    - 40
+    - 45
+    - 48
+  burn_in_excluded_levels:
+    - 0
+  n_reference: 4096
+  n_eval: 1024
+  reference_seed: 600000
+  evaluation_seed: 700000

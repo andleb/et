@@ -1,0 +1,33 @@
+model_root: models/mnist
+output_root: "res/mnist/diffusion"
+
+model:
+  run_name: "posterior"
+  label: "h2560 / rho4 full"
+  checkpoint: "final.pt"
+
+path:
+  name: "gaussian_non_diagonal"
+  beta: 2.0
+  lam: 1.0
+  u: 0.0
+  v: 0.6
+
+schedule:
+  actual_rms_start: 2.62858779876867
+  actual_rms_end: 0.19714408490765023
+
+sampler:
+  n_levels: 64
+  first_level_steps: 1000
+  n_steps_each: 100
+  n_mc: 256
+  base_lr: 0.0015625
+  alpha_cap: 0.025
+  update_clip: 10.0
+  state_clip: null
+
+production:
+  seeds: [ 2718, 3141, 5772 ]
+  chunks_per_seed: 2
+  chunk_samples: 128

@@ -1,0 +1,11 @@
+output_root: res/8gauss/score/comparison_full5_80k
+reference_cache: res/8gauss/score/comparison_full5_80k/reference
+et_results: res/8gauss/score/full5
+model_root: models
+evaluation_seed: 271828
+seeds: [ 42, 43 ]
+objectives: [ et_dsm, hyvarinen ]
+
+system:
+  device: cuda
+  dtype: float32

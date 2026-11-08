@@ -1,0 +1,231 @@
+{
+  "analysis_version": 1,
+  "data": {
+    "radius": 2.0,
+    "std_clean": 0.2
+  },
+  "et_results": "res/8gauss/diffusion/full5_spd",
+  "et_training": {
+    "model": {
+      "add_bn": false,
+      "beta": 1.0,
+      "film_level": 2,
+      "film_mlp_hidden": 64,
+      "film_pos": "in",
+      "hidden_dim": 250,
+      "noise_all_layer": true,
+      "noise_dim": 100,
+      "noise_floor": 0.005,
+      "num_layers": 6,
+      "out_act": null,
+      "resblock": true,
+      "standardize": false,
+      "standardize_condition": false,
+      "vary_stochasticity": false
+    },
+    "training": {
+      "accum_steps": 2,
+      "batch_size": 40000,
+      "grad_clip": true,
+      "grad_clip_norm": 1.0,
+      "lr": 1.5e-05,
+      "num_epochs": 17500,
+      "print_every": 50,
+      "scheduler": {
+        "eta_min": 1e-06,
+        "type": "cosine"
+      },
+      "seed": 42,
+      "sigma_weight": {
+        "enabled": true,
+        "mode": "inv_sigma2_norm",
+        "power": 0.100343
+      },
+      "snapshot_every": 1000
+    }
+  },
+  "model": {
+    "activation": "silu",
+    "condition_dim": 5,
+    "depth": 3,
+    "dim": 2,
+    "width": 256
+  },
+  "noise": {
+    "anchor_probability": 0.35,
+    "anchors": [
+      {
+        "beta": 1.4,
+        "lam": 1.8,
+        "rho": 0.316846,
+        "u": 0.0,
+        "v": 0.0
+      },
+      {
+        "beta": 1.4,
+        "lam": 1.8,
+        "rho": 0.316846,
+        "u": 0.6,
+        "v": 0.0
+      },
+      {
+        "beta": 1.4,
+        "lam": 1.8,
+        "rho": 0.316846,
+        "u": 0.0,
+        "v": 0.6
+      },
+      {
+        "beta": 1.4,
+        "lam": 1.8,
+        "rho": 0.316846,
+        "u": 0.424264,
+        "v": 0.424264
+      },
+      {
+        "beta": 1.4,
+        "lam": 1.8,
+        "rho": 0.570322,
+        "u": 0.0,
+        "v": 0.0
+      },
+      {
+        "beta": 1.4,
+        "lam": 1.8,
+        "rho": 0.570322,
+        "u": 0.6,
+        "v": 0.0
+      },
+      {
+        "beta": 1.4,
+        "lam": 1.8,
+        "rho": 0.570322,
+        "u": 0.0,
+        "v": 0.6
+      },
+      {
+        "beta": 1.4,
+        "lam": 1.8,
+        "rho": 0.570322,
+        "u": 0.424264,
+        "v": 0.424264
+      },
+      {
+        "beta": 1.4,
+        "lam": 1.8,
+        "rho": 0.950537,
+        "u": 0.0,
+        "v": 0.0
+      },
+      {
+        "beta": 1.4,
+        "lam": 1.8,
+        "rho": 0.950537,
+        "u": 0.6,
+        "v": 0.0
+      },
+      {
+        "beta": 1.4,
+        "lam": 1.8,
+        "rho": 0.950537,
+        "u": 0.0,
+        "v": 0.6
+      },
+      {
+        "beta": 1.4,
+        "lam": 1.8,
+        "rho": 0.950537,
+        "u": 0.424264,
+        "v": 0.424264
+      },
+      {
+        "beta": 2.0,
+        "lam": 1.0,
+        "rho": 0.01,
+        "u": 0.0,
+        "v": 0.0
+      },
+      {
+        "beta": 2.0,
+        "lam": 1.0,
+        "rho": 10.0,
+        "u": 0.0,
+        "v": 0.0
+      },
+      {
+        "beta": 1.3,
+        "lam": 2.5,
+        "rho": 0.01,
+        "u": 0.7,
+        "v": 0.0
+      },
+      {
+        "beta": 1.3,
+        "lam": 2.5,
+        "rho": 10.0,
+        "u": 0.0,
+        "v": 0.7
+      },
+      {
+        "beta": 1.3,
+        "lam": 1.0,
+        "rho": 1.0,
+        "u": -0.7,
+        "v": 0.0
+      },
+      {
+        "beta": 2.0,
+        "lam": 2.5,
+        "rho": 1.0,
+        "u": 0.0,
+        "v": -0.7
+      }
+    ],
+    "beta_max": 2.0,
+    "beta_min": 1.3,
+    "condition": "full_spd",
+    "lambda_max": 2.5,
+    "lambda_min": 1.0,
+    "n_sigma_levels": 15,
+    "rho_max": 10.0,
+    "rho_min": 0.01,
+    "schedule": "geometric",
+    "sigma_max": 10.0,
+    "sigma_min": 0.01,
+    "spd": {
+      "radial_distribution": "uniform_area",
+      "radius_max": 0.7
+    }
+  },
+  "objectives": [
+    "et_dsm",
+    "hyvarinen"
+  ],
+  "output_root": "res/8gauss/score/comparison_full5_80k",
+  "posterior_config": "res/8gauss/cond_models/generalized_full5_spd_rho10_r0.7_filmMLP64_hd250_s42/config.yaml",
+  "reference_cache": "res/8gauss/score/comparison_full5",
+  "seeds": [
+    42,
+    43
+  ],
+  "system": {
+    "device": "cuda",
+    "dtype": "float32"
+  },
+  "training": {
+    "batch_size": 4096,
+    "checkpoint_every": 2000,
+    "data_seed_offset": 100000,
+    "grad_clip": 10.0,
+    "log_every": 100,
+    "loss_weight": "actual_rms_squared",
+    "lr": 0.001,
+    "lr_min": 1e-05,
+    "n_steps": 80000,
+    "validation_batch_size": 1024,
+    "validation_batches": 8,
+    "validation_every": 2000,
+    "validation_seed_offset": 200000,
+    "weight_decay": 0.0
+  }
+}

@@ -1,0 +1,33 @@
+data:
+  radius: 2.0
+  std_clean: 0.2
+noise:
+  sigmas:
+    - 0.25
+    - 0.45
+    - 0.75
+generalized:
+  beta_noise: 1.4
+  lam: 1.8
+  covariance:
+    type: fixed_spd_2d
+    uv:
+      - 0.25
+      - 0.35
+training:
+  seed: 14042
+  objective: exact_hyvarinen
+  n_steps: 40000
+  batch_size: 4096
+  lr: 0.001
+  weight_decay: 0.0
+  grad_clip: 10.0
+  log_every: 100
+model:
+  dim: 2
+  width: 256
+  depth: 3
+  activation: silu
+system:
+  device: cuda
+  dtype: float32
