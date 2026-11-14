@@ -10,6 +10,8 @@
   <a href="https://neurips.cc/virtual/2026/loc/sydney/poster/150007"><img src="https://img.shields.io/badge/NeurIPS-2026-8b1e3f" alt="NeurIPS 2026"></a>
   <a href="https://arxiv.org/abs/2512.23818"><img src="https://img.shields.io/badge/arXiv-2512.23818-b31b1b" alt="arXiv:2512.23818"></a>
   <a href="https://andleb.netlify.app/publication/et/"><img src="https://img.shields.io/badge/Paper-Website-2563eb" alt="Paper website"></a>
+  <a href="https://huggingface.co/papers/2512.23818"><img src="https://img.shields.io/badge/%F0%9F%A4%97_Hugging_Face-Paper-ffd21e" alt="Hugging Face paper"></a>
+  <a href="https://huggingface.co/andleb/et"><img src="https://img.shields.io/badge/%F0%9F%A4%97_Hugging_Face-Models-ffd21e" alt="Hugging Face models"></a>
 </p>
 
 ---
@@ -56,6 +58,8 @@ python -m pip install -e src/engression
 
 The following notebooks reproduce the results presented in the paper. They evaluate the released checkpoints and write their tables and figures under `res/`. Run shell commands from the repository root.
 
+All released checkpoints and their saved configurations are also hosted on [Hugging Face](https://huggingface.co/andleb/et). See the [model card](https://huggingface.co/andleb/et#download) for downloads and loading examples.
+
 | Notebook in `exp/` | Dataset | Reproduces |
 | --- | --- | --- |
 | [reproduce_score_estimation.ipynb](exp/reproduce_score_estimation.ipynb) | Eight-Gaussians | Three-estimator score comparison, posterior diagnostics, posterior-sample budget, and Richardson clean-score fields |
@@ -76,7 +80,7 @@ The notebooks generate the data from the Eight-Gaussians mixture. Two notebook s
 
 ### MNIST
 
-Download `final.pt` from the [MNIST model release](https://github.com/andleb/et/releases/tag/MNIST_model) and place it at `models/mnist/posterior/final.pt`. Then generate the samples for the five paths, which the notebook loads:
+Download `final.pt` from the [MNIST model release](https://github.com/andleb/et/releases/tag/MNIST_model) and place it at `models/mnist/posterior/final.pt`. The checkpoint is also available on [Hugging Face](https://huggingface.co/andleb/et/tree/main/mnist/posterior). Then generate the samples for the five paths, which the notebook loads:
 
 ```bash
 bash exp/sample_diffusion_mnist.sh
